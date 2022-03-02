@@ -62,9 +62,23 @@ class Renderer {
     // ctx:          canvas context
     drawSlide1(ctx) {
         let center = {x: 300, y: 300};
+        let color_show_point = [0, 255, 0, 255];
         let radius = 100;
         let color = [255, 0, 0, 255];
         this.drawCircle(center, radius, color, ctx);
+
+        if(this.showPoints.flag == true){
+            let color_show_point = [0, 255, 0, 255];
+            let center_x = center.x + radius;
+            let center_y = center.y;
+            let totalpoints = 60;
+            for(let degree = 0; degree < totalpoints; degree++){
+                this.drawCircle(center_x, 10, color_show_point, ctx);
+                let x = center_x + radius*Math.cos(degree);
+                let y = center_y + radius*Math.sin(degree);
+            }
+            
+        }
     }
 
     //Draw Bezier Curve
@@ -76,6 +90,7 @@ class Renderer {
         let point3 = {x:500, y:100};    //end point
         let color = [0, 255, 0, 255];
         this.drawBezierCurve(point0, point1, point2, point3, color, ctx);
+
     }
 
     //Draw Name

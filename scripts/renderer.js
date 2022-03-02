@@ -47,8 +47,8 @@ class Renderer {
     //Draw Rectangle
     // ctx:          canvas context
     drawSlide0(ctx) {
-        let left_bottom = [10, 30];
-        let right_top = [80, 50];
+        let left_bottom = [100, 300];
+        let right_top = [700, 500];
         let color = [255, 0, 255, 255];
         this.drawRectangle(point1, point3, color, ctx);
     }

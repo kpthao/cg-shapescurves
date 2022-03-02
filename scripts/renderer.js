@@ -73,7 +73,7 @@ class Renderer {
         let point1 = {x:150, y:300};    //control point 1
         let point2 = {x:600, y:250};    //control point 2
         let point3 = {x:500, y:100};    //end point
-        color = [0, 255, 0, 255];
+        let color = [0, 255, 0, 255];
         this.drawBezierCurve(point0, point1, point2, point3, color, ctx);
     }
 

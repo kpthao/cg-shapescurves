@@ -205,7 +205,7 @@ class Renderer {
         let x = 0;
         let y = 0;
         let t = 0;
-        let points = [];
+        let points = {x:0, y:0};
         let counter = 1 / this.num_curve_sections;
         
         for(let index = 0; index < this.num_curve_sections+1; index++){
@@ -216,7 +216,7 @@ class Renderer {
             y = (1-t)^3*pt0.y + 3*(1-t)^2*t*pt1.y + 3*(1-t)*t^t*pt2.y + t^3*pt3.y;
 
             points.push({x:x, y:y});
-            t = t + counter
+            t = t + counter;
         }
     }
 

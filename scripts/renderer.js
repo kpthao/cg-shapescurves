@@ -56,7 +56,7 @@ class Renderer {
     //Draw Circle
     // ctx:          canvas context
     drawSlide1(ctx) {
-        let center = [300, 300];
+        let center = {x: 300, y: 300};
         let radius = 100;
         let color = [255, 0, 0, 255];
         this.drawCircle(center, radius, color, ctx);
@@ -65,10 +65,10 @@ class Renderer {
     //Draw Bezier Curve
     // ctx:          canvas context
     drawSlide2(ctx) {
-        let point0 = [100, 100];    //beginning point
-        let point1 = [150, 300];    //control point 1
-        let point2 = [600, 250];    //control point 2
-        let point3 = [500, 100];    //end point
+        let point0 = {x:100, y:100};    //beginning point
+        let point1 = {x:150, y:300};    //control point 1
+        let point2 = {x:600, y:250};    //control point 2
+        let point3 = {x:500, y:100};    //end point
         color = [0, 255, 0, 255];
         this.drawBezierCurve(point0, point1, point2, point3, color, ctx);
     }
@@ -83,55 +83,55 @@ class Renderer {
         let minimum_y_height = 100;
         let maximum_y_height = 300;
         let color = [255, 255, 255, 255];
-        let point0 = [0,0];
-        let point1 = [0,0];
-        let point2 = [0,0];
-        let point3 = [0,0];
-        let center = [0,0];
+        let point0 = {x:0, y:0};
+        let point1 = {x:0, y:0};
+        let point2 = {x:0, y:0};
+        let point3 = {x:0, y:0};
+        let center = {x:0, y:0};
         let radius = 100;
 
         //draw K
-        point0 = [100,minimum_y_height];
-        point1 = [100,maximum_y_height];
-        midpoint = [point0.getElementById(0), ((point0.getElementById(1)+point1.getElementById(1))/2)];
-        point2 = [300,maximum_y_height];
-        point3 = [300,minimum_y_height];
+        point0 = {x:100, y:minimum_y_height};
+        point1 = {x:100, y:maximum_y_height};
+        midpoint = {x:point0.x, y:((point0.y + point1.y)/2)};
+        point2 = {x:300,y:maximum_y_height};
+        point3 = {x:300,y:minimum_y_height};
         this.drawLine(point0, point1, color, ctx);
         this.drawLine(midpoint, point2, color, this.ctx);
         this.drawLine(midpoint, point3, color, this.ctx);
 
         //draw P
-        point0 = [400, minimum_y_height];
-        point1 = [400, maximum_y_height];
-        middle_curve = [600, ((point0.getElementById(1)+point1.getElementById(1))/2)];
+        point0 = {x:400, y:minimum_y_height};
+        point1 = {x:400, y:maximum_y_height};
+        middle_curve = {x:600, y:((point0.y + point1.y)/2)};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawBezierCurve(point0, middle_curve, middle_curve, point1, color, this.ctx);
 
         //draw T
-        point0 = [500, maximum_y_height];
-        point1 = [700, maximum_y_height];
-        midpoint = [((point0.getElementById(0)+point1.getContext(0))/2), maximum_y_height];
-        point2 = [midpoint, minimum_y_height];
+        point0 = {x:500, y:maximum_y_height};
+        point1 = {x:700, y:maximum_y_height};
+        midpoint = {x:((point0.x + point1.x)/2), y:maximum_y_height};
+        point2 = {x:midpoint, y:minimum_y_height};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawLine(midpoint, point2, color, this.ctx);
 
         //draw h
-        point0 = [800, maximum_y_height];
-        point1 = [800, minimum_y_height];
-        middle_curve = [((point0.getElementById(0)+point1.getContext(0))/2), ((point0.getElementById(1)+point1.getContext(1))/2)];
-        point2 = [1000, minimum_y_height];
+        point0 = {x:800, y:maximum_y_height};
+        point1 = {x:800, y:minimum_y_height};
+        middle_curve = {x:((point0.x+point1.x)/2), y:((point0.y+point1.y)/2)};
+        point2 = {x:1000, y:minimum_y_height};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawBezierCurve(point1, middle_curve, middle_curve, point2, color, this.ctx);
 
         //draw a
-        point0 = [1300, maximum_y_height];
-        point1 = [1300, minimum_y_height];
-        center = [(point0.x-100), (point0.y-100)];
+        point0 = {x:1300, y:maximum_y_height};
+        point1 = {x:1300, y:minimum_y_height};
+        center = {x:(point0.x-100), y:(point0.y-100)};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawCircle(center, radius, color, this.ctx);
 
         //draw o
-        center = [(point0 + 200), (point0.y-100)];
+        center = {x:(point0 + 200), y:(point0.y-100)};
         this.drawCircle(center, radius, color, this.ctx);
     }
 
@@ -185,7 +185,6 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // ctx:          canvas context
     drawBezierCurve(pt0, pt1, pt2, pt3, color, ctx) {
-        //TODO FIND WHAT T IS
         // let pt0x = pt0.getElementById(0);
         // let pt1x = pt1.getElementById(0);
         // let pt2x = pt2.getElementById(0);

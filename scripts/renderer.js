@@ -165,6 +165,7 @@ class Renderer {
         //initializes the distance from the center of the circle
         // let center_x = center.x + radius;
         let center_x = center.x + radius;
+        let count = 0;
         // let center_y = center.y;
         let center_y = center.y;
         let old_point = {x:center_x, y:center_y};
@@ -176,9 +177,10 @@ class Renderer {
             //initializes new point
             let new_point = {x:x,y:y};
             //draws a line from the previous point to the new coordinate
-            if(old_point.y != center_x && old_point.y != center_y){
+            if(count != 0){
                 this.drawLine(old_point, new_point, color, ctx);
             }
+            count++;
             //the new line becomes the old line for the next iteration
             old_point = new_point;
         }

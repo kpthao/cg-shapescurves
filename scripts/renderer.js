@@ -140,9 +140,11 @@ class Renderer {
     // color:        array of int [R, G, B, A]
     // ctx:          canvas context
     drawRectangle(left_bottom, right_top, color, ctx) {
-        let right_bottom = [right_top.x, left_bottom.y];
+        // let right_bottom = [right_top.x, left_bottom.y];
+        let right_bottom = {x:right_top.x, y:left_bottom.y};
         // let right_bottom = [right_top.getElementById(0), left_bottom.getElementById(1)];
-        let left_top = [left_bottom.x, right_top.y];
+        // let left_top = [left_bottom.x, right_top.y];
+        let left_top = {x:left_bottom.x, y:right_top.y};
         // let left_top = [left_bottom.getElementById(0), right_top.getElementById(1)];
 
         this.drawLine(left_bottom, left_top, color, ctx);       //draw left side

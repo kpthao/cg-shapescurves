@@ -173,7 +173,7 @@ class Renderer {
         let center_y = center.y;
         let old_point = {x:center_x, y:center_y};
         //loop to change draw lines from degrees 0-360
-        for(degree = 0; degree < 360; degree++){
+        for(let degree = 0; degree < 360; degree++){
             //calculates new x and y coordinates
             let x = center_x + radius*Math.cos(degree);
             let y = center_y + radius*Math.sin(degree);

@@ -71,7 +71,7 @@ class Renderer {
             let color_show_point = [0, 255, 0, 255];
             let center_x = center.x + radius;
             let center_y = center.y;
-            let totalpoints = 60;
+            let totalpoints = 30;
             for(let degree = 0; degree < totalpoints; degree++){
                 this.drawCircle(center_x, 10, color_show_point, ctx);
                 let x = center_x + radius*Math.cos(degree);
@@ -100,8 +100,8 @@ class Renderer {
     }
 
     drawName(){
-        let minimum_y_height = 100;
-        let maximum_y_height = 300;
+        let minimum_y_height = 100/2;
+        let maximum_y_height = 300/2;
         let color = [255, 255, 255, 255];
         let point0 = {x:0, y:0};
         let point1 = {x:0, y:0};
@@ -111,47 +111,47 @@ class Renderer {
         let radius = 100;
 
         //draw K
-        point0 = {x:100, y:minimum_y_height};
-        point1 = {x:100, y:maximum_y_height};
+        point0 = {x:100/2, y:minimum_y_height};
+        point1 = {x:100/2, y:maximum_y_height};
         midpoint = {x:point0.x, y:((point0.y + point1.y)/2)};
-        point2 = {x:300,y:maximum_y_height};
-        point3 = {x:300,y:minimum_y_height};
+        point2 = {x:300/2,y:maximum_y_height};
+        point3 = {x:300/2,y:minimum_y_height};
         this.drawLine(point0, point1, color, ctx);
         this.drawLine(midpoint, point2, color, this.ctx);
         this.drawLine(midpoint, point3, color, this.ctx);
 
         //draw P
-        point0 = {x:400, y:minimum_y_height};
-        point1 = {x:400, y:maximum_y_height};
-        middle_curve = {x:600, y:((point0.y + point1.y)/2)};
+        point0 = {x:400/2, y:minimum_y_height};
+        point1 = {x:400/2, y:maximum_y_height};
+        middle_curve = {x:600/2, y:((point0.y + point1.y)/2)};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawBezierCurve(point0, middle_curve, middle_curve, point1, color, this.ctx);
 
         //draw T
-        point0 = {x:500, y:maximum_y_height};
-        point1 = {x:700, y:maximum_y_height};
+        point0 = {x:500/2, y:maximum_y_height};
+        point1 = {x:700/2, y:maximum_y_height};
         midpoint = {x:((point0.x + point1.x)/2), y:maximum_y_height};
         point2 = {x:midpoint, y:minimum_y_height};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawLine(midpoint, point2, color, this.ctx);
 
         //draw h
-        point0 = {x:800, y:maximum_y_height};
-        point1 = {x:800, y:minimum_y_height};
+        point0 = {x:800/2, y:maximum_y_height};
+        point1 = {x:800/2, y:minimum_y_height};
         middle_curve = {x:((point0.x+point1.x)/2), y:((point0.y+point1.y)/2)};
-        point2 = {x:1000, y:minimum_y_height};
+        point2 = {x:1000/2, y:minimum_y_height};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawBezierCurve(point1, middle_curve, middle_curve, point2, color, this.ctx);
 
         //draw a
-        point0 = {x:1300, y:maximum_y_height};
-        point1 = {x:1300, y:minimum_y_height};
-        center = {x:(point0.x-100), y:(point0.y-100)};
+        point0 = {x:1300/2, y:maximum_y_height};
+        point1 = {x:1300/2, y:minimum_y_height};
+        center = {x:(point0.x-100/2), y:(point0.y-100/2)};
         this.drawLine(point0, point1, color, this.ctx);
         this.drawCircle(center, radius, color, this.ctx);
 
         //draw o
-        center = {x:(point0 + 200), y:(point0.y-100)};
+        center = {x:(point0 + 200/2), y:(point0.y-100/2)};
         this.drawCircle(center, radius, color, this.ctx);
     }
 
@@ -186,7 +186,7 @@ class Renderer {
         let center_y = center.y;
         let old_point = {x:center_x, y:center_y};
         //loop to change draw lines from degrees 0-360
-        for(let degree = 0; degree < 60; degree++){
+        for(let degree = 0; degree < 30; degree++){
             //calculates new x and y coordinates
             let x = center_x + radius*Math.cos(degree);
             let y = center_y + radius*Math.sin(degree);

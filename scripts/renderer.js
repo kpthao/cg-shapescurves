@@ -50,10 +50,11 @@ class Renderer {
         let left_bottom = {x:100, y:300};
         let right_top = {x:700, y:500};
         let color = [255, 0, 255, 255];
+        let color_show_point = [0, 255, 0, 255];
         this.drawRectangle(left_bottom, right_top, color, ctx);
 
         if(this.showPoints.flag == true){
-            this.drawCircle(left_bottom, 5, color, ctx);
+            this.drawCircle(left_bottom, 10, color_show_point, ctx);
         }
     }
 
@@ -170,7 +171,7 @@ class Renderer {
         let center_y = center.y;
         let old_point = {x:center_x, y:center_y};
         //loop to change draw lines from degrees 0-360
-        for(let degree = 0; degree < 360; degree++){
+        for(let degree = 0; degree < 60; degree++){
             //calculates new x and y coordinates
             let x = center_x + radius*Math.cos(degree);
             let y = center_y + radius*Math.sin(degree);
@@ -205,7 +206,8 @@ class Renderer {
         let x = 0;
         let y = 0;
         let t = 0;
-        let points = [];
+        let new_point = {};
+        let old_point = {x:0, y:0}
         let counter = 1 / this.num_curve_sections;
         
         for(let index = 0; index < this.num_curve_sections+1; index++){
@@ -215,7 +217,10 @@ class Renderer {
             x = (1-t)^3*pt0.x + 3*(1-t)^2*t*pt1.x + 3*(1-t)*t^2*pt2.x + t^3*pt3.x;
             y = (1-t)^3*pt0.y + 3*(1-t)^2*t*pt1.y + 3*(1-t)*t^t*pt2.y + t^3*pt3.y;
 
-            points.push({x:x, y:y});
+            new_point.push({x:x, y:y});
+            
+            this.drawLine(old_point, new_point, color, ctx);
+            old_point = new_point;
             t = t + counter;
         }
     }

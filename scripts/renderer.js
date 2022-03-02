@@ -51,6 +51,10 @@ class Renderer {
         let right_top = {x:700, y:500};
         let color = [255, 0, 255, 255];
         this.drawRectangle(left_bottom, right_top, color, ctx);
+
+        if(this.showPoints.flag == true){
+            
+        }
     }
 
     //Draw Circle
@@ -160,17 +164,17 @@ class Renderer {
     drawCircle(center, radius, color, ctx) {
         //initializes the distance from the center of the circle
         // let center_x = center.x + radius;
-        let center_x = center.getElementById(0) + radius;
+        let center_x = center.x + radius;
         // let center_y = center.y;
-        let center_y = center.getElementById(1);
-        let old_point = [center_x, center_y];
+        let center_y = center.y;
+        let old_point = {x:center_x, y:center_y};
         //loop to change draw lines from degrees 0-360
         for(degree = 0; degree < 360; degree++){
             //calculates new x and y coordinates
             let x = center_x + radius*Math.cos(degree);
             let y = center_y + radius*Math.sin(degree);
             //initializes new point
-            let new_point = [x,y];
+            let new_point = {x:x,y:y};
             //draws a line from the previous point to the new coordinate
             this.drawLine(old_point, new_point, color, ctx);
             //the new line becomes the old line for the next iteration

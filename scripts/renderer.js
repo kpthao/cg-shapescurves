@@ -176,9 +176,11 @@ class Renderer {
             //initializes new point
             let new_point = {x:x,y:y};
             //draws a line from the previous point to the new coordinate
+            if(old_point.y != center_x && old_point.y != center_y){
+                this.drawLine(old_point, new_point, color, ctx);
+            }
             //the new line becomes the old line for the next iteration
             old_point = new_point;
-            this.drawLine(old_point, new_point, color, ctx);
         }
     }
 

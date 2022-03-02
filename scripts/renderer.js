@@ -63,6 +63,9 @@ class Renderer {
         let center = {x: 300, y: 300};
         let radius = 100;
         let color = [255, 0, 0, 255];
+        let point0 = {x:100, y:100};    //beginning point
+        let point1 = {x:150, y:300};    //control point 1
+        this.drawLine(point0, point1, color, ctx);
         this.drawCircle(center, radius, color, ctx);
     }
 
@@ -74,6 +77,7 @@ class Renderer {
         let point2 = {x:600, y:250};    //control point 2
         let point3 = {x:500, y:100};    //end point
         let color = [0, 255, 0, 255];
+        this.drawLine(point0, point1, color, ctx);
         this.drawBezierCurve(point0, point1, point2, point3, color, ctx);
     }
 

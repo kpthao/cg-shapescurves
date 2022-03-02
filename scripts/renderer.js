@@ -202,7 +202,7 @@ class Renderer {
         let y = 0;
         let t = 0;
         //let points = {x:0, y:0};
-        let points = {};
+        let points = [];
         let counter = 1 / this.num_curve_sections;
         
         for(let index = 0; index < this.num_curve_sections+1; index++){

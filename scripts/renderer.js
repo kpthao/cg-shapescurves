@@ -53,7 +53,7 @@ class Renderer {
         this.drawRectangle(left_bottom, right_top, color, ctx);
 
         if(this.showPoints.flag == true){
-            
+            this.drawCircle(left_bottom, 5, color, ctx);
         }
     }
 
@@ -205,7 +205,7 @@ class Renderer {
         let x = 0;
         let y = 0;
         let t = 0;
-        //let points = [];
+        let points = [];
         let counter = 1 / this.num_curve_sections;
         
         for(let index = 0; index < this.num_curve_sections+1; index++){
@@ -215,7 +215,7 @@ class Renderer {
             x = (1-t)^3*pt0.x + 3*(1-t)^2*t*pt1.x + 3*(1-t)*t^2*pt2.x + t^3*pt3.x;
             y = (1-t)^3*pt0.y + 3*(1-t)^2*t*pt1.y + 3*(1-t)*t^t*pt2.y + t^3*pt3.y;
 
-            //points.push({x:x, y:y});
+            points.push({x:x, y:y});
             t = t + counter;
         }
     }

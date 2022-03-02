@@ -176,9 +176,9 @@ class Renderer {
             //initializes new point
             let new_point = {x:x,y:y};
             //draws a line from the previous point to the new coordinate
-            this.drawLine(old_point, new_point, color, ctx);
             //the new line becomes the old line for the next iteration
             old_point = new_point;
+            this.drawLine(old_point, new_point, color, ctx);
         }
     }
 
@@ -201,7 +201,8 @@ class Renderer {
         let x = 0;
         let y = 0;
         let t = 0;
-        let points = {x:0, y:0};
+        //let points = {x:0, y:0};
+        let points = {};
         let counter = 1 / this.num_curve_sections;
         
         for(let index = 0; index < this.num_curve_sections+1; index++){

@@ -263,6 +263,8 @@ class Renderer {
             for(let index = 0; index < points.length; index++){
                 this.drawCircle(points[index], 10, newColor, ctx);
             }
+            this.drawCircle(pt1, 5, newColor, ctx);
+            this.drawCircle(pt2, 5, newColor, ctx);
         }
     }
 
